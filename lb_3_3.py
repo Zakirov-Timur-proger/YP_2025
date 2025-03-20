@@ -77,7 +77,7 @@ def draw_ghost(x, y):
     skirt_length = 20  # Длина юбки
 
     # Тело
-    pygame.draw.ellipse(screen, gray, (x, y, body_width, body_height))
+    pygame.draw.ellipse(screen, white, (x, y, body_width, body_height))
 
     # многоугольник
     pygame.draw.polygon(screen, gray, [

@@ -79,7 +79,7 @@ def draw_ghost(x, y):
     eye_offset_y = 30
 
     # Тело
-    pygame.draw.ellipse(screen, gray, (x, y, body_width, body_height))
+    pygame.draw.ellipse(screen, white, (x, y, body_width, body_height))
 
     # многоугольник
     pygame.draw.polygon(screen, gray, [
