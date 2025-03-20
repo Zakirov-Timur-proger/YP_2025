@@ -71,31 +71,37 @@ def draw_house(x, y):
     pygame.draw.rect(screen, black, (x + house_width - 30, y - roof_height - house_height // 2 - pipe_height, pipe_width, pipe_height))
 
 
+import pygame
+
+import pygame
+
+import pygame
+
 def draw_ghost(x, y):
-    body_width = 80
-    body_height = 100
-    eye_size = 8
-    eye_offset_x = 20
-    eye_offset_y = 30
+    body_width = 50  # Уменьшенный размер тела
+    body_height = 60
+    wave_width = 20   # Уменьшенный размер "волн"
+    wave_height = 30
+    eye_radius = 7    # Уменьшенный размер глаз
+    pupil_radius = 4
+    eye_offset = 15    # Смещение глаз
 
-    # Тело
-    pygame.draw.ellipse(screen, white, (x, y, body_width, body_height))
+    white = (255, 255, 255)
+    blue = (0, 0, 255)
+    black = (0, 0, 0)
 
-    # многоугольник
-    pygame.draw.polygon(screen, gray, [
-        (x, y + body_height),
-        (x + body_width, y + body_height),
-        (x + body_width + 20, y + body_height + 20),
-        (x - 20, y + body_height + 20)
-    ])
+    # Тело призрака (форма амебы)
+    pygame.draw.ellipse(screen, white, (x, y, body_width, body_height))  # Основное тело
+    pygame.draw.ellipse(screen, white, (x - 10, y + 20, wave_width, wave_height))  # Левая "волна"
+    pygame.draw.ellipse(screen, white, (x + body_width - wave_width + 10, y + 20, wave_width, wave_height))  # Правая "волна"
 
     # Глаза
-    pygame.draw.circle(screen, blue, (x + eye_offset_x, y + eye_offset_y), eye_size)
-    pygame.draw.circle(screen, black, (x + eye_offset_x, y + eye_offset_y), eye_size // 2)
-
-    pygame.draw.circle(screen, blue, (x + body_width - eye_offset_x, y + eye_offset_y), eye_size)
-    pygame.draw.circle(screen, black, (x + body_width - eye_offset_x, y + eye_offset_y), eye_size // 2)
-
+    # Левый глаз
+    pygame.draw.circle(screen, blue, (x + body_width // 4, y + 20), eye_radius)
+    pygame.draw.circle(screen, black, (x + body_width // 4, y + 20), pupil_radius)
+    # Правый глаз
+    pygame.draw.circle(screen, blue, (x + body_width * 3 // 4, y + 20), eye_radius)
+    pygame.draw.circle(screen, black, (x + body_width * 3 // 4, y + 20), pupil_radius)
 
 running = True
 while running:
