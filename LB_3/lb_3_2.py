@@ -73,10 +73,6 @@ def draw_house(x, y):
 
 import pygame
 
-import pygame
-
-import pygame
-
 def draw_ghost(x, y):
     body_width = 50  # Уменьшенный размер тела
     body_height = 60
